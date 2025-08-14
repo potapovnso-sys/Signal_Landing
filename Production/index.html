@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="ico/летта-ai.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <title>Революция в анализе продаж - Узнайте правду о ваших продавцах</title>
     
     <!-- SEO Meta -->
@@ -1005,6 +1011,46 @@
             border-radius: 2px;
             transition: width 0.3s ease;
             box-shadow: 0 0 10px rgba(0,123,255,0.5);
+        }
+
+        /* Fix for iPhone notch and home indicator */
+        @supports (padding: max(0px)) {
+            body {
+                padding-top: max(env(safe-area-inset-top), 20px);
+                padding-bottom: max(env(safe-area-inset-bottom), 20px);
+                padding-left: max(env(safe-area-inset-left), 20px);
+                padding-right: max(env(safe-area-inset-right), 20px);
+                min-height: -webkit-fill-available;
+            }
+
+            .header {
+                padding-top: env(safe-area-inset-top);
+            }
+
+            .form-modal {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+
+        /* iPhone 14 Pro Max specific */
+        @media only screen 
+            and (device-width: 430px) 
+            and (device-height: 932px) 
+            and (-webkit-device-pixel-ratio: 3) {
+            .container {
+                width: 100%;
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+            }
+
+            .telegram-interface {
+                transform: scale(0.9);
+                margin: 0 auto;
+            }
+
+            .header-content {
+                padding: 0 max(20px, env(safe-area-inset-left));
+            }
         }
 
         /* Responsive Design */
