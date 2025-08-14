@@ -1032,6 +1032,41 @@
             }
         }
 
+        /* iPhone and small screens */
+        @media screen and (max-width: 430px) {
+            html {
+                font-size: 14px;
+            }
+            
+            body {
+                width: 100%;
+                overflow-x: hidden;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            h1, h2, h3 {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .hero-text {
+                width: 100%;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 15px;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+        }
+
         /* iPhone 14 Pro Max specific */
         @media only screen 
             and (device-width: 430px) 
