@@ -1,0 +1,294 @@
+/**
+ * Animations CSS
+ * -------------
+ * Все анимации и переходы сайта:
+ * 
+ * 1. Transitions
+ *    - Базовые переходы элементов
+ *    - Плавные изменения состояний
+ * 
+ * 2. Keyframe Animations
+ *    - Дрейф фона (drift)
+ *    - Частицы (particles)
+ *    - Градиентные потоки (gradientFlow)
+ *    - Свечение кнопок (buttonGlow)
+ *    - Подсветка текста (highlightGlow)
+ *    - Мигание точек (blink)
+ *    - Пульсация счета (scoreGlow)
+ *    - Блики (resultShine)
+ *    - Пульсация таймера (timerPulse)
+ *    - Послесвечение (afterGlow)
+ *    - Отскок (bounce)
+ *    - Сканирование (scan)
+ *    - Плавание (float)
+ *    - Появление модалки (modalSlideIn)
+ * 
+ * 3. Hover Effects
+ *    - Эффекты наведения
+ *    - Трансформации
+ *    - Изменения цвета и теней
+ * 
+ * 4. Active States
+ *    - Состояния активности
+ *    - Видимость элементов
+ */
+
+/* Transitions */
+.reveal {
+    transition: all var(--transition-base);
+}
+
+.skip-link {
+    transition: top var(--transition-base);
+}
+
+.header {
+    transition: all var(--transition-base);
+}
+
+.logo {
+    transition: all var(--transition-base);
+}
+
+.nav-link {
+    transition: all var(--transition-base);
+}
+
+.nav-link::after {
+    transition: width var(--transition-base);
+}
+
+.nav-cta {
+    transition: all var(--transition-base);
+}
+
+.progress-fill-reading {
+    transition: width var(--transition-fast);
+}
+
+.back-to-top {
+    transition: all var(--transition-base);
+}
+
+.nav-menu {
+    transition: all var(--transition-base);
+}
+
+.form-input {
+    transition: all var(--transition-base);
+}
+
+.checkmark {
+    transition: all var(--transition-base);
+}
+
+.pain-point {
+    transition: all var(--transition-slow);
+}
+
+.pain-point::before {
+    transition: left var(--transition-slow);
+}
+
+.metric-fill {
+    transition: width var(--transition-slow);
+}
+
+/* Keyframe Animations */
+@keyframes drift {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-50px) translateY(-50px); }
+    50% { transform: translateX(50px) translateY(-25px); }
+    75% { transform: translateX(-25px) translateY(50px); }
+    100% { transform: translateX(-100px) translateY(-100px); }
+}
+
+@keyframes particles {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes buttonGlow {
+    0%, 100% { box-shadow: var(--shadow-primary); }
+    50% { box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.3); }
+}
+
+@keyframes highlightGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(255,71,87,0.5); }
+    50% { text-shadow: 0 0 30px rgba(255,71,87,0.8), 0 0 40px rgba(255,71,87,0.3); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; box-shadow: 0 0 10px currentColor; }
+    50% { opacity: 0.6; box-shadow: 0 0 20px currentColor; }
+}
+
+@keyframes scoreGlow {
+    0%, 100% { text-shadow: 0 0 15px rgba(255,71,87,0.5); }
+    50% { text-shadow: 0 0 25px rgba(255,71,87,0.8), 0 0 35px rgba(255,71,87,0.3); }
+}
+
+@keyframes resultShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes timerPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes afterGlow {
+    0%, 100% { box-shadow: 0 15px 30px rgba(46,213,115,0.2); }
+    50% { box-shadow: 0 20px 40px rgba(46,213,115,0.4); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+@keyframes borderGlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes scan {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes modalSlideIn {
+    0% { opacity: 0; transform: translateY(-50px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Animation Assignments */
+.hero::before {
+    animation: drift 20s linear infinite;
+}
+
+.hero-text h1 {
+    animation: gradientFlow 8s ease infinite;
+}
+
+.hero-highlight {
+    animation: highlightGlow 2s ease-in-out infinite;
+}
+
+.hero-demo::before {
+    animation: particles 10s linear infinite;
+}
+
+.demo-dot {
+    animation: blink 2s ease-in-out infinite;
+}
+
+.demo-dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.demo-dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.score {
+    animation: scoreGlow 2s ease-in-out infinite;
+}
+
+.calc-result::before {
+    animation: resultShine 2s ease-in-out infinite;
+}
+
+.timer-value {
+    animation: timerPulse 1s ease-in-out infinite;
+}
+
+.chart-bar.after {
+    animation: afterGlow 3s ease-in-out infinite;
+}
+
+.conversion-arrow {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.calculator::before {
+    animation: borderGlow 12s linear infinite;
+}
+
+.form-content {
+    animation: modalSlideIn 0.5s ease forwards;
+}
+
+/* Hover Effects */
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-primary);
+}
+
+.pain-point:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pain-point:hover::before {
+    left: 100%;
+}
+
+.testimonial:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Active States */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

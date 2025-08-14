@@ -1,0 +1,279 @@
+/**
+ * Components CSS
+ * -------------
+ * Стили для переиспользуемых компонентов:
+ * 
+ * 1. Кнопки (.cta-primary)
+ *    - Основные стили
+ *    - Эффекты наведения
+ *    - Градиенты и тени
+ * 
+ * 2. Формы
+ *    - Поля ввода (.form-input)
+ *    - Метки (.form-label)
+ *    - Сообщения об ошибках
+ *    - Чекбоксы
+ * 
+ * 3. Модальные окна
+ *    - Контейнер (.form-modal)
+ *    - Содержимое (.form-content)
+ *    - Анимации
+ * 
+ * 4. Прогресс-бары
+ *    - Базовый стиль
+ *    - Заполнение
+ * 
+ * 5. Футер
+ *    - Основной контейнер
+ *    - Дисклеймер
+ *    - Копирайт
+ */
+
+/* Buttons */
+.cta-primary {
+    background: var(--gradient-button);
+    background-size: 200% 200%;
+    color: var(--color-text);
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-primary);
+    animation: buttonGlow 3s ease-in-out infinite;
+}
+
+.cta-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.3);
+    background-position: 100% 50%;
+}
+
+.cta-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left var(--transition-slow);
+}
+
+.cta-primary:hover::before {
+    left: 100%;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    width: 100%;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    margin: var(--spacing-md) 0;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius-lg);
+    background: rgba(255,255,255,0.1);
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    backdrop-filter: blur(10px);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-2px);
+}
+
+.form-input.error {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 10px rgba(255,71,87,0.2);
+}
+
+.error-message {
+    color: var(--color-danger);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+    display: none;
+}
+
+/* Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--font-size-sm);
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius-sm);
+}
+
+.checkbox-container:hover .checkmark {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Modal */
+.form-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10,10,10,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-lg);
+}
+
+.form-content {
+    background: var(--gradient-main);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-2xl);
+    max-width: 550px;
+    width: 90%;
+    position: relative;
+    animation: modalSlideIn 0.5s ease forwards;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-content h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.form-content p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    margin: var(--spacing-lg) 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-button);
+    border-radius: var(--radius-sm);
+    transition: width var(--transition-base);
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 10px 5px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+.footer-container {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.footer-disclaimer {
+    font-size: 0.6rem;
+    line-height: 1.1;
+    margin-bottom: 3px;
+}
+
+.footer-stats {
+    font-size: 0.56rem;
+    line-height: 1.0;
+    margin-bottom: 3px;
+}
+
+.footer-copyright {
+    margin-top: 6px;
+    padding-top: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copyright p {
+    font-size: 0.56rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-link {
+    color: #48dbfb;
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.footer-link:hover {
+    color: #0abde3;
+}
+
+

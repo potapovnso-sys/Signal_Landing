@@ -1,0 +1,195 @@
+/**
+ * Sections CSS
+ * -----------
+ * Стили для основных секций лендинга:
+ * 
+ * 1. Hero Section (.hero)
+ *    - Фоновая сетка и эффекты
+ *    - Контент и заголовки
+ *    - Демо-блок
+ * 
+ * 2. Калькулятор (.calculator)
+ *    - Основной контейнер
+ *    - Поля ввода
+ *    - Результаты
+ *    - Эффекты и градиенты
+ * 
+ * 3. Заголовки секций (.section-title)
+ *    - Градиентный текст
+ *    - Подчеркивание
+ *    - Отступы
+ */
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: var(--spacing-3xl) 0;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    animation: drift 20s linear infinite;
+    z-index: var(--z-negative);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    position: relative;
+    z-index: var(--z-base);
+}
+
+.hero-text h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: 900;
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary), #00d4ff, var(--color-primary));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 8s ease infinite;
+}
+
+.hero-highlight {
+    color: var(--color-danger);
+    font-weight: 900;
+    text-shadow: 0 0 20px rgba(255,71,87,0.5);
+    animation: highlightGlow 2s ease-in-out infinite;
+}
+
+.hero-text p {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-2xl);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-base);
+}
+
+.hero-demo {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-2xl);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.hero-demo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+    animation: particles 10s linear infinite;
+    z-index: var(--z-negative);
+}
+
+/* Calculator Section */
+.calculator-section {
+    padding: var(--spacing-3xl) 0;
+    background: rgba(0,0,0,0.4);
+    position: relative;
+}
+
+.calculator {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(25px);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-3xl);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+/* Calculator Inputs Container */
+.calculator .form-group {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calculator::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-primary), #00d4ff, var(--color-primary), #00d4ff);
+    background-size: 400% 400%;
+    border-radius: var(--radius-2xl);
+    z-index: var(--z-negative);
+    animation: borderGlow 12s linear infinite;
+}
+
+.calculator h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+/* Calculator Input Fields */
+.calculator input[type="number"] {
+    width: 100%;
+    max-width: 600px;
+    margin: var(--spacing-md) auto;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: rgba(255,255,255,0.95);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-lg);
+    color: var(--color-background);
+    display: block;
+}
+
+.calculator input[type="number"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-2px);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: var(--font-size-3xl);
+    font-weight: 900;
+    margin-bottom: var(--spacing-2xl);
+    background: var(--gradient-button);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-button);
+    border-radius: var(--radius-sm);
+}
+
+

@@ -1,0 +1,189 @@
+/**
+ * Base CSS Variables and Foundational Styles
+ * ----------------------------------------
+ * Содержит:
+ * 1. CSS переменные (цвета, градиенты, тени, отступы и т.д.)
+ * 2. Базовые стили для элементов (body, a, button, input)
+ * 3. Сброс стилей и нормализация
+ * 4. Общие утилиты
+ */
+:root {
+    /* Colors */
+    --color-primary: #007bff;
+    --color-success: #2ed573;
+    --color-warning: #ffa502;
+    --color-danger: #ff4757;
+    --color-text: #fff;
+    --color-text-secondary: #b8c6db;
+    --color-background: #0a0a0a;
+    --color-background-secondary: #1a1a2e;
+    --color-background-tertiary: #16213e;
+    
+    /* Gradients */
+    --gradient-main: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-secondary) 50%, var(--color-background-tertiary) 100%);
+    --gradient-button: linear-gradient(135deg, var(--color-primary) 0%, #0056b3 100%);
+    --gradient-logo: linear-gradient(135deg, #3a3a3a, var(--color-primary));
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-primary: 0 5px 15px rgba(0, 123, 255, 0.3);
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-2xl: 40px;
+    --spacing-3xl: 60px;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 15px;
+    --radius-2xl: 25px;
+    --radius-circle: 50%;
+    
+    /* Typography */
+    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    
+    /* Line Heights */
+    --line-height-tight: 1.2;
+    --line-height-base: 1.6;
+    --line-height-loose: 2;
+    
+    /* Transitions */
+    --transition-fast: 0.1s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index */
+    --z-negative: -1;
+    --z-base: 1;
+    --z-header: 1000;
+    --z-modal: 2000;
+    --z-tooltip: 3000;
+    
+    /* Container */
+    --container-max-width: 1200px;
+    --container-padding: 20px;
+    
+    /* Header */
+    --header-height: 80px;
+    
+    /* Progress */
+    --progress: 0deg;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Typography */
+body {
+    font-family: var(--font-family);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background: var(--gradient-main);
+    overflow-x: hidden;
+    padding-top: var(--header-height);
+}
+
+/* Base Links */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+a:hover {
+    color: var(--color-warning);
+}
+
+/* Base Container */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Base Headings */
+h1, h2, h3, h4, h5, h6 {
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Base Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: var(--font-family);
+}
+
+/* Base Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Base Forms */
+input, textarea, select {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+}
+
+/* Base Lists */
+ul, ol {
+    list-style: none;
+}
+
+/* Base Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Base Focus */
+:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Base Selection */
+::selection {
+    background: var(--color-primary);
+    color: var(--color-text);
+}
+
+/* Base Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: var(--radius-lg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-warning);
+}
